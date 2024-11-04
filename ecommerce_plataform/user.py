@@ -6,7 +6,7 @@ class User():
         self.username = username
         self.email = self._validate_email(email)
         self.password = self._validate_password(password)
-        self.cart = {}  # Dictionary para almacenar {product_id: quantity}
+        self.cart = {}  
     
     def _validate_email(self, email: str) -> str:
         # Validación básica de email usando regex
