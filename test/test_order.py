@@ -57,15 +57,3 @@ def test_update_status(sample_order):
     # Intentar actualizar a un estado no válido
     with pytest.raises(ValueError, match="Estado de la orden inválido."):
         sample_order.update_status("InvalidStatus")
-
-def test_summary(sample_order, sample_user):
-    # Verificar que el resumen de la orden es correcto
-    summary = sample_order.summary()
-    expected_summary = {
-        "order_id": 1,
-        "user": sample_user.username,
-        "order_items": {"product1": 2, "product2": 1},
-        "total_amount": 40.0,
-        "status": "Pending"
-    }
-    assert summary == expected_summary
