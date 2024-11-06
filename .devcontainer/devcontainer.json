@@ -39,7 +39,17 @@
                 "ms-python.vscode-pylance",
 				// Extensión para facilitar la administración de contenedores Docker.
 				"ms-azuretools.vscode-docker"
+<<<<<<< HEAD
 			]
 		}
 	}
+=======
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/opt/venv/bin/python"
+			}
+		}
+	}
+	
+>>>>>>> 52d964e227372642cc0979e4a302c96c6dea409b
 }

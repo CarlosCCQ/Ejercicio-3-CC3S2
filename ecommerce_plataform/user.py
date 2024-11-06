@@ -16,12 +16,39 @@ class User():
         return email
     
     def _validate_password(self, password: str) -> str:
+<<<<<<< HEAD
         # Requisitos mínimos: 8 caracteres, 1 mayúscula, 1 número
         if (len(password) < 8 or 
             not any(c.isupper() for c in password) or 
             not any(c.isdigit() for c in password)):
             raise ValueError("La contraseña debe tener al menos 8 caracteres, una mayúscula y un número")
         return password
+=======
+    # Requisitos mínimos: 8 caracteres, 1 mayúscula, 1 número
+        if len(password) < 8:
+            raise ValueError("La contraseña debe tener al menos 8 caracteres")
+
+        has_uppercase = False
+        for c in password:
+            if c.isupper():
+                has_uppercase = True
+                break
+            
+        if not has_uppercase:
+            raise ValueError("La contraseña debe tener al menos una letra mayúscula")
+    
+        has_digit = False
+        for c in password:
+            if c.isdigit():
+                has_digit = True
+                break
+            
+        if not has_digit:
+            raise ValueError("La contraseña debe tener al menos un número")
+    
+        return password
+
+>>>>>>> 52d964e227372642cc0979e4a302c96c6dea409b
     
     def register(self,username:str,email:str,password: str) -> str:
         self.username = username
