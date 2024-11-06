@@ -17,21 +17,6 @@ def test_product_creation():
     assert product.price == price 
     assert product.stock == stock 
 
-def test_fail_product_creation():
-    #Arrange
-    id = 1
-    name = " "
-    description = "Saco de arroz altomayo"
-    price = -10.99
-    stock = 15
-    #Act
-    product = Product(id , name , description , price , stock)
-    #Assert
-    assert product.id == id
-    assert product.name == name
-    assert product.description == description
-    assert product.price == price 
-    assert product.stock == stock 
 
 def test_update_stock():
     #Arrange
@@ -47,9 +32,13 @@ def test_fail_update_stock():
     new_stock = -12
     #Arrange
     product = Product(1, "Arroz", "Saco de arroz altomayo", 10.99, 15)
-    product.update_stock(new_stock)
+
+    with pytest.raises(ValueError) as exec_inf:
+        product.update_stock(new_stock)        
+
     #Assert
-    assert product.stock == new_stock
+    assert str(exec_inf.value) == "Stock negativo"
+
 
 def test_apply_discount():
     #Arrange

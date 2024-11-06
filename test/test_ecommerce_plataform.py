@@ -1,6 +1,5 @@
-import pytest_
 import ecommerce_plataform.user as user
-
+import pytest
 def test_validate_email_with_valid_emails():
     # Arrange
     valid_emails = [
